@@ -1,0 +1,17 @@
+ablations:
+  - name: no_task_awareness
+    task_aware_allocation: false
+    redundancy_ratio: 1.0
+    recovery_module: true
+  - name: no_redundancy
+    task_aware_allocation: true
+    redundancy_ratio: 0.0
+    recovery_module: true
+  - name: no_recovery_module
+    task_aware_allocation: true
+    redundancy_ratio: 1.0
+    recovery_module: false
+  - name: reduced_redundancy_50
+    task_aware_allocation: true
+    redundancy_ratio: 0.5
+    recovery_module: true

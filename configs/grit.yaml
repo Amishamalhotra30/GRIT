@@ -1,0 +1,11 @@
+experiment:
+  name: grit
+  method: grit
+  seed: 42
+  representation:
+    redundancy_ratio: 1.0
+    task_aware_allocation: true
+    recovery_module: true
+  training:
+    corruption_augmentation: false
+  note: "Specify the task-importance estimator and redundancy budget before production runs."

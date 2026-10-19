@@ -1,0 +1,10 @@
+experiment:
+  name: robustness_trained
+  method: robustness_trained
+  seed: 42
+  representation:
+    redundancy_ratio: 0.0
+    task_aware_allocation: false
+    recovery_module: false
+  training:
+    corruption_augmentation: true

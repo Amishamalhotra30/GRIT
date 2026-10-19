@@ -1,0 +1,7 @@
+dataset:
+  name: graspnet-1billion
+  root: data/raw/graspnet
+  split: train
+  subset_scene_ids: []
+  use_subset: true
+  notes: "Development subset only until the loader and evaluation path are verified."

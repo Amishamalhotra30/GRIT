@@ -1,0 +1,13 @@
+evaluation:
+  protocol: "GraspNet official protocol, to be confirmed against the chosen baseline version"
+  split: validation
+  seeds: [42]
+  metrics:
+    - clean_ap
+    - ap_by_corruption_severity
+    - ap_retention
+    - inference_latency_ms
+    - parameter_overhead
+    - representation_overhead
+    - recovery_error
+  report_subset_status: true

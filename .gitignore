@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.venv/
+venv/
+.env
+
+# Editors / OS
+.vscode/
+.idea/
+.DS_Store
+Thumbs.db
+
+# Data and experiment artifacts
+data/raw/
+data/processed/
+artifacts/checkpoints/
+artifacts/predictions/
+artifacts/logs/
+*.pt
+*.pth
+*.ckpt
+*.npz
+*.npy
+*.pcd
+*.ply
+
+# Frontend
+frontend/node_modules/
+frontend/dist/
+frontend/.vite/
