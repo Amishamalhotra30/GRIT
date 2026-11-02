@@ -1,0 +1,20 @@
+[
+  {
+    "id": "a826283c-d9fd-4437-be68-2014cf6d3333",
+    "created_at": "2026-10-19T10:58:42.290202+00:00",
+    "updated_at": "2026-10-19T10:58:42.290202+00:00",
+    "config": {
+      "method": "grit",
+      "corruption": "random_feature_erasing",
+      "severity": 30,
+      "seed": 42,
+      "dataset": "GraspNet-1Billion",
+      "task": "6-DoF grasp detection"
+    },
+    "status": "queued",
+    "message": "Configuration queued; execution has not started.",
+    "metrics": null,
+    "artifacts": null,
+    "error": null
+  }
+]

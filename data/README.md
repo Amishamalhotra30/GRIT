@@ -1,5 +1,1 @@
-# Dataset storage
-
-Keep GraspNet data out of Git. Configure the verified local dataset root in
-`configs/dataset.yaml`. Confirm the official dataset access/download instructions
-and required files before attempting bulk transfer. Start with a single scene/frame.
+Do not commit GraspNet data. Store locally under `data/processed` as NPZ point clouds with `xyz [N,3]` and `graspness [N]`. Follow docs/GRASPNET_ADAPTER.md.

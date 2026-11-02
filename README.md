@@ -1,37 +1,41 @@
-# GRIT
+# GRIT — Task-Aware Error-Correcting Visual Representations
 
-**Task-Aware Error-Correcting Visual Representations for Robust Robotic Perception Under Catastrophic Information Loss**
+Local-first research prototype comparing Standard, Uniform Redundancy, Robustness-trained, and Full GRIT under representation-level corruption. The repository includes a PyTorch point-cloud graspness model, NPZ dataset adapter, training/evaluation scripts, FastAPI experiment registry, React dashboard, and PyBullet scene smoke demo.
 
-This repository is the local-first scaffold for the GRIT major project.
+## Quick start
 
-## Locked scope
-- Dataset: GraspNet-1Billion
-- Primary methods: Standard, Uniform Redundancy, Robustness-trained, Full GRIT
-- Ablations: No Task Awareness, No Redundancy, No Recovery Module, Reduced Redundancy (50%)
-- Representation-level corruptions: random erasing, block erasing, burst corruption, feature noise
-- Robot simulation: Franka Panda with PyBullet
-- Dashboard: React + TypeScript, backed by FastAPI
-- Compute: local development first; Kaggle/Colab free-tier GPU sessions later; no paid cloud resources
+### Research environment
+```bash
+python -m venv .venv
+# Windows: .venv\\Scripts\\activate | macOS/Linux: source .venv/bin/activate
+pip install -r requirements/research.txt
+python -m pytest
+python -m research.training.train --synthetic-smoke --epochs 1 --points 128
+```
 
-## Important research rule
-No benchmark numbers should be shown as results until they have been measured and exported by a real run. Subset results must be labelled as subset results.
+Synthetic mode is only a code smoke test. For research, prepare actual GraspNet-derived `.npz` files as described in `docs/GRASPNET_ADAPTER.md` and train with `--data data/processed`.
 
-## Repository layout
-- `research/`: model adapters, corruption, training, evaluation, export
-- `configs/`: explicit experiment configurations
-- `notebooks/`: staged notebooks for Kaggle/Colab
-- `backend/`: local FastAPI API
-- `frontend/`: dashboard
-- `simulation/`: PyBullet simulation
-- `tests/`: unit tests
-- `data/`: instructions only; do not commit dataset files
-- `artifacts/`: generated outputs; do not commit large checkpoints
+### API
+```bash
+pip install -r backend/requirements.txt
+uvicorn backend.app.main:app --reload --port 8000
+```
 
-## Day 1 setup
-1. Create/activate a Python virtual environment.
-2. Install `requirements/research.txt`.
-3. Run `python -m pytest`.
-4. Read `docs/experiment_protocol.md`.
-5. Do not download the full dataset yet.
+### Dashboard
+```bash
+cd frontend
+npm install
+npm run dev
+```
 
-See `docs/day1_checklist.md` for the next steps.
+### Simulation
+```bash
+pip install -r requirements/simulation.txt
+python simulation/run_demo.py --gui
+```
+
+## Kaggle
+See `docs/KAGGLE_RUNBOOK.md`. Keep scene-based train/validation splits fixed and export checkpoints/results before session expiry.
+
+## Scientific scope warning
+This is a compact prototype, not a full GraspNet baseline, not a 6-DoF pose proposal implementation, and not official GraspNet AP evaluation. Its pointwise graspness accuracy is a prototype metric. Do not present synthetic smoke metrics as research results. See `docs/EXPERIMENT_PROTOCOL.md`.

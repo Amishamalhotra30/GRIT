@@ -1,10 +1,10 @@
+
 # Python
 __pycache__/
 *.py[cod]
 .pytest_cache/
 .venv/
 venv/
-.env
 
 # Editors / OS
 .vscode/
@@ -12,11 +12,25 @@ venv/
 .DS_Store
 Thumbs.db
 
+# Environment variables
+.env
+.env.*
+
 # Data and experiment artifacts
 data/raw/
 data/processed/
 artifacts/checkpoints/
 artifacts/predictions/
+
+# Frontend
+node_modules/
+dist/
+
+# Python build artifacts
+build/
+*.egg-info/
+
+# Model checkpoints and generated data
 artifacts/logs/
 *.pt
 *.pth
@@ -26,7 +40,5 @@ artifacts/logs/
 *.pcd
 *.ply
 
-# Frontend
-frontend/node_modules/
-frontend/dist/
+# Vite cache
 frontend/.vite/
